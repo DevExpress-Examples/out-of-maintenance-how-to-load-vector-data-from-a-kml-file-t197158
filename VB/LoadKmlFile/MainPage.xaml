@@ -1,0 +1,41 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LoadKmlFile"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Map="using:DevExpress.UI.Xaml.Map"
+    x:Class="LoadKmlFile.MainPage"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+       <Map:MapControl ZoomLevel="3.5">
+            <Map:MapControl.CenterPoint>
+                <Map:GeoPoint Latitude="51.90" Longitude="-118.7666"/>
+            </Map:MapControl.CenterPoint>
+            <!--region #GraphColorizer-->
+            <Map:MapControl.Colorizer>
+                <Map:GraphColorizer>
+                    <Map:GraphColorizer.Colors>
+                        <Color>#D6864E</Color>
+                        <Color>#C56450</Color>
+                        <Color>#BA4D51</Color>
+                        <Color>#7FABB5</Color>
+                        <Color>#799689</Color>
+                        <Color>#A2A875</Color>
+                        <Color>#B3DE69</Color>
+                        <Color>#FF0000</Color>
+                    </Map:GraphColorizer.Colors>
+                </Map:GraphColorizer>
+            </Map:MapControl.Colorizer>
+            <!--endregion #GraphColorizer-->
+            <!--region #KmlReader-->
+            <Map:VectorFileLayer>
+                <Map:KmlReader>
+                    <Map:MapPackageFileSource FileName="Assets\States.kml"/>
+                </Map:KmlReader>
+            </Map:VectorFileLayer>
+            <!--endregion #KmlReader-->
+        </Map:MapControl>
+    </Grid>
+</Page>
